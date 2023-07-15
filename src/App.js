@@ -15,7 +15,7 @@ function App() {
   const {ethereum} = window;
   const provider = new ethers.providers.Web3Provider(ethereum)
     
-  const addressContract = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
+  const addressContract = '0x5dd0fF0E6D78cc6B85Fe63365f379B427CEc2A8F'
   const contractInstance = new ethers.Contract(addressContract, abiContract, provider.getSigner())
 
   const connectwalletHandler = async () => {
@@ -31,15 +31,12 @@ function App() {
   }
 
   const retrieve = async ()=> {
-      const retrieveValue = await contractInstance.retrieve()
-      setRetrieveValue(retrieveValue.toString())
+      await contractInstance.contribuir()
   }
 
   return (
     <div className="App">
       <header className="App-header">
-       
-   
 
         <div>
           <button onClick={connectwalletHandler}>Connect</button>
