@@ -14,14 +14,11 @@ function App() {
 
   const {ethereum} = window;
   const provider = new ethers.providers.Web3Provider(ethereum)
-
     
   const addressContract = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
   const contractInstance = new ethers.Contract(addressContract, abiContract, provider.getSigner())
 
   const connectwalletHandler = async () => {
-    if(window.ethereum)
-      alert("Please Install Metamask!!!"); 
 
     await provider.send("eth_requestAccounts", [])
     const address = await provider.getSigner().getAddress();
